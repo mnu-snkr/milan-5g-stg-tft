@@ -1,0 +1,11 @@
+data/
+*.parquet
+*.csv
+
+__pycache__/
+*.pyc
+
+
+*.ckpt
+*.pth
+*.pt
