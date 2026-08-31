@@ -42,7 +42,7 @@ def main():
 
     print("Forecasting test horizon...")
     with torch.no_grad():
-        predictions, x, *_ = model.predict(test_dl, mode="prediction", return_x=True)
+        predictions, x, *_ = model.predict(test_dl, mode="prediction", return_x=True, trainer_kwargs={"accelerator": "gpu", "devices": 1})
         actuals = x["decoder_target"]
 
     print("Generating visual evidence...")
