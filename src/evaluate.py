@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import torch
 import os
-from data_pipeline import build_dataloaders, get_adjacency_matrix
+from data_pipeline import build_dataloaders
 from tft_model import SpatioTemporalGraphTFT
 
 def plot_forecast(actuals, predictions, grid_idx, grid_name, save_path):
