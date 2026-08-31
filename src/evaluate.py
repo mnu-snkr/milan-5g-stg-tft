@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import torch
 import os
-from data_pipeline import build_dataloaders
+from data_pipeline import build_dataloaders, get_adjacency_matrix
 from tft_model import SpatioTemporalGraphTFT
 
 def plot_forecast(actuals, predictions, grid_idx, grid_name, save_path):
@@ -30,10 +30,16 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     print("Loading test data...")
-    _, _, _, test_dl, _ = build_dataloaders(file_path, batch_size=128)
+    _, _, _, test_dl, adj_matrix = build_dataloaders(file_path, batch_size=128)
     
+    print("Building spatial matrix...")
+    adj_matrix = get_adjacency_matrix() # <-- Generate it
+
     print("Loading STG-TFT Checkpoint...")
-    model = SpatioTemporalGraphTFT.load_from_checkpoint(checkpoint_path)
+    model = SpatioTemporalGraphTFT.load_from_checkpoint(
+        checkpoint_path,
+        adjacency_matrix=adj_matrix # <-- Inject it here
+    )
     model.eval()
 
     print("Forecasting test horizon...")
