@@ -25,7 +25,7 @@ def plot_forecast(actuals, predictions, grid_idx, grid_name, save_path):
 
 def main():
     file_path = "/kaggle/input/datasets/manusankarkm/milan-traffic-aggregated-parquet/milan_traffic_aggregated.parquet"
-    checkpoint_path = "/kaggle/input/datasets/manusankarkm/checkpoint/epoch5-step1068.ckpt" 
+    checkpoint_path = "/kaggle/input/notebooks/manusankarkm/stgnn-milan-prediction/lightning_logs/version_0/checkpoints/epoch=17-step=1062.ckpt" 
     output_dir = "../assets/"
     os.makedirs(output_dir, exist_ok=True)
 
