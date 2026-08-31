@@ -32,8 +32,6 @@ def main():
     print("Loading test data...")
     _, _, _, test_dl, adj_matrix = build_dataloaders(file_path, batch_size=128)
     
-    print("Building spatial matrix...")
-    adj_matrix = get_adjacency_matrix() # <-- Generate it
 
     print("Loading STG-TFT Checkpoint...")
     model = SpatioTemporalGraphTFT.load_from_checkpoint(
