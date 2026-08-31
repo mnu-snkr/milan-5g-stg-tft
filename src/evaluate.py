@@ -6,7 +6,7 @@ from tft_model import SpatioTemporalGraphTFT
 
 def plot_forecast(actuals, predictions, grid_idx, grid_name, save_path):
     actual_series = actuals[grid_idx][0, :].cpu().numpy()
-    pred_series = predictions[grid_idx][0, :, 1].cpu().numpy() # Index 1 is the 50th percentile (median)
+    pred_series = predictions[grid_idx][0, :].cpu().numpy()
 
     plt.figure(figsize=(12, 6))
     plt.plot(actual_series, label="Actual Traffic", color="black", linewidth=2)
