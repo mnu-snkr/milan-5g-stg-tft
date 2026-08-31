@@ -51,6 +51,17 @@ def main():
     
     plot_forecast(actuals, predictions, grid_idx=0, grid_name="City Center (Hub Penalty)", 
                   save_path=f"{output_dir}/city_center_penalty.png")
+    print("-" * 40)
+    print("FINAL PIPELINE METRICS")
+    print("-" * 40)
+    grid_names = ["City Center (5060)", "University (4259)", "Residential (4456)"]
+    for i in range(3):
+        # We are using 2D slicing now, no phantom 3rd dimension
+        target_actuals = actuals[i][0, :]
+        median_preds = predictions[i][0, :] 
+        
+        mae = (target_actuals - median_preds).abs().mean()
+        print(f"Grid: {grid_names[i]} | MAE: {mae.item():.4f}")
 
 if __name__ == "__main__":
     main()
