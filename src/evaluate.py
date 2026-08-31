@@ -24,8 +24,8 @@ def plot_forecast(actuals, predictions, grid_idx, grid_name, save_path):
     plt.close()
 
 def main():
-    file_path = "../data/raw/milan-traffic-aggregated-parquet"
-    checkpoint_path = "C:\Users\user\DEVELOPER\VSCODEProjects\milan-5G-stg-tft\models\epoch=5-step=1068.ckpt" # Update this to your Kaggle checkpoint
+    file_path = "/kaggle/input/datasets/manusankarkm/milan-traffic-aggregated-parquet/milan_traffic_aggregated.parquet"
+    checkpoint_path = "/kaggle/input/datasets/manusankarkm/checkpoint/epoch5-step1068.ckpt" 
     output_dir = "../assets/"
     os.makedirs(output_dir, exist_ok=True)
 
